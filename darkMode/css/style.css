@@ -20,7 +20,21 @@ body{
 }
 
 aside{
-    background-color: blue;
+    padding: 4rem;
+}
+
+.navigation{
+
+}
+
+.navigation__list{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.navigation__listItem{
+    list-style: none;
 }
 
 main{
