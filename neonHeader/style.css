@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+
+
+.neon {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    height: 100vh;
+    background: #252a34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.ball {
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 0 0 3rem 0 rgba(0, 0, 0, 0.6);
+    animation-name: colorRotation;
+    animation-duration: 30s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.ball--first {
+    top: -10%;
+    left: -10%;
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+.ball--second {
+    top: -10%;
+    right: -10%;
+    background: linear-gradient(#2fa2ff, #00ffdd);
+}
+
+.ball--third {
+    top: 50%;
+    left: -10%;
+    background: linear-gradient(#2fa2ff, #00ffdd);
+}
+
+
+.ball--fourth {
+    top: 55%;
+    right: -10%;
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+.neon>h1 {
+    color: white;
+    font-size: 300%;
+    animation-name: popup;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    z-index: 1;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.card {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    background: #222831cc;
+    list-style: none;
+    border: 0.1rem solid rgba(255, 255, 255, 0.6);
+    animation-name: popup;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
+    transition: 0.2s transform;
+
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card::after {
+    content: "";
+    color: white;
+    background: linear-gradient(#2fa2ff, #00ffdd);
+    width: 100%;
+    bottom: 0;
+    height: 2rem;
+    left: 0;
+    position: absolute;
+    animation-name: colorRotation;
+    animation-duration: 30s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.card:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-of-type(3) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-of-type(4) {
+    animation-delay: 0.4s;
+}
+
+
+.card:nth-of-type(5) {
+    animation-delay: 0.5s;
+}
+
+.card:nth-of-type(6) {
+    animation-delay: 0.6s;
+}
+
+
+.card:nth-of-type(2)::after,
+.card:nth-of-type(4)::after,
+.card:nth-of-type(6)::after {
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+
+@keyframes colorRotation {
+    from {
+        filter: hue-rotate(0);
+    }
+
+    to {
+        filter: hue-rotate(1turn);
+    }
+
+}
+
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+@media screen and (max-width:37.5rem) {
+    .neon {
+        padding: 4rem;
+        height: auto;
+    }
+
+    .ball--second {
+        display: none;
+    }
+}
