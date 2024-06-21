@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingCart</title>
+    <script src="https://kit.fontawesome.com/741f656676.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <section id="js--checkoutWindow" class="checkout a-popup">
+        <ul class="checkout__list">
+            <li class="checkout__listItem">
+                <img class="mario"
+                    src="https://prosteps.cloudimg.io/v7/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/PaperMarioTheThousandYearDoor.jpg?w=240&h=300&org_if_sml=0&optipress=2&fit_enlarge=1&sharp=0&func=fit">
+                <p class="checkout__title">Paper Mario - The Thousand Year Door</p>
+                <p id="js--amount-rolex" class="checkout__amount"></p>
+            </li>
+            <li class="checkout__listItem">
+                <img class="finalfantasy"
+                    src="https://prosteps.cloudimg.io/v7/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/Final-Fantasy-VII-Rebirth-PS5.jpg"
+                    alt="" class="checkout__image">
+                <p class="checkout__title">Final Fantasy VII Rebirth</p>
+                <p id="js--amount-ap" class="checkout__amount"></p>
+            </li>
+            <li class="checkout__listItem">
+                <img class="pokemon"
+                    src="https://prosteps.cloudimg.io/v7m/resizeinbox/1000x1000/fsharp0/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/HAC_PokemonLegendsZ_A_DummyPS_HOL.jpg"
+                    alt="" class="checkout__image">
+                <p class="checkout__title">Pokémon Legends - Z-A</p>
+                <p id="js--amount-rm" class="checkout__amount"></p>
+            </li>
+        </ul>
+    </section>
+    <article class="modal a-popup" id="js--shoppingModal">
+        &#10003;Added to Cart
+    </article>
+    <button id="js--checkoutButton" class="shoppingCart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="shoppingCart__message">0</div>
+    </button>
+    <main>
+        <ul class="games">
+            <li class="games__game a-popup">
+                <figure class="games__figure">
+                    <img id="RW"
+                        src="https://prosteps.cloudimg.io/v7/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/PaperMarioTheThousandYearDoor.jpg">
+                </figure>
+                <section class="games__body">
+                    <h2 class="games__h2">€34,50</h2>
+                    <h3 class=games__h3>Paper Mario - The Thousand Year Door</h3>
+                    <div class="games__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <button data-product="rolex" class="games__button">Add to Cart</button>
+                </section>
+            </li>
+            <li class="games__game a-popup">
+                <figure class="games__figure">
+                    <img id="APW"
+                        src="https://prosteps.cloudimg.io/v7/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/Final-Fantasy-VII-Rebirth-PS5.jpg">
+                </figure>
+                <section class="games__body">
+                    <s>€93,87</s>
+                    <h2 class="games__h2">€67,34</h2>
+                    <h3 class="games__h3">Final Fantasy VII Rebirth</h3>
+                    <div class="games__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <button data-product="audermars piguet" class="games__button">Add to Cart</button>
+                </section>
+            </li>
+            <li class="games__game games__game--third a-popup">
+                <figure class="games__figure">
+                    <img id="RMW"
+                        src="https://prosteps.cloudimg.io/v7m/resizeinbox/1000x1000/fsharp0/https://tilroy.s3.eu-west-1.amazonaws.com/375/product/HAC_PokemonLegendsZ_A_DummyPS_HOL.jpg"
+                        alt="Richard Mille horloge">
+                </figure>
+                <section class="games__body">
+                    <h2 class="games__h2">€64,34</h2>
+                    <h3 class="games__h3">Pokémon Legends - Z-A</h3>
+                    <div class="games__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <button data-product="richard mille" class="games__button">Add to Cart</button>
+                </section>
+            </li>
+        </ul>
+    </main>
+</body>
+
+</html>
