@@ -5,127 +5,47 @@ let noFilter = true;
 let redFilter = document.getElementById("checkbox-red");
 let redChecked = false;
 redFilter.onchange = function () {
-    if (filters[0].checked) {
-        redChecked = true;
-        showColors("red");
-    }
-    else {
-        redChecked = false;
-        for (let i = 0; i < filters.length; i++) {
-            if (filters[i].checked) {
-                noFilter = false;
-            }
-            else {
-                noFilter = true;
-            }
-        }
-        if (noFilter) {
-            for (let i = 0; i < allColors.length; i++) {
-                allColors[i].style.display = "block";
-            }
-            return;
-        }
-        for (let i = 0; i < allColors.length; i++) {
-            if (allColors[i].dataset.category === "red") {
-                allColors[i].style.display = "none";
-            }
-        }
-    }
+    redChecked = redFilter.checked;
+    updateColors();
 }
 
 let greenFilter = document.getElementById("checkbox-green");
 let greenChecked = false;
 greenFilter.onchange = function () {
-    if (filters[1].checked) {
-        greenChecked = true;
-        showColors("green");
-    }
-    else {
-        greenChecked = false;
-        for (let i = 0; i < filters.length; i++) {
-            if (filters[i].checked) {
-                noFilter = false;
-            }
-            else {
-                noFilter = true;
-            }
-        }
-        if (noFilter) {
-            for (let i = 0; i < allColors.length; i++) {
-                allColors[i].style.display = "block";
-            }
-            return;
-        }
-        for (let i = 0; i < allColors.length; i++) {
-            if (allColors[i].dataset.category === "green") {
-                allColors[i].style.display = "none";
-            }
-        }
-    }
+    greenChecked = greenFilter.checked;
+    updateColors();
 }
 
 let blueFilter = document.getElementById("checkbox-blue");
 let blueChecked = false;
 blueFilter.onchange = function () {
-    if (filters[2].checked) {
-        blueChecked = true;
-        showColors("blue");
-    }
-    else {
-        blueChecked = false;
-        for (let i = 0; i < filters.length; i++) {
-            if (filters[i].checked) {
-                noFilter = false;
-            }
-            else {
-                noFilter = true;
-            }
-        }
-        if (noFilter) {
-            for (let i = 0; i < allColors.length; i++) {
-                allColors[i].style.display = "block";
-            }
-            return;
-        }
-        for (let i = 0; i < allColors.length; i++) {
-            if (allColors[i].dataset.category === "blue") {
-                allColors[i].style.display = "none";
-            }
-        }
-    }
+    blueChecked = blueFilter.checked;
+    updateColors();
 }
 
 function noFilterCheck() {
-    for (let i = 0; i < filters.length; i++) {
-        if (filters[i].checked) {
-            noFilter = false;
-        }
-        else {
-            noFilter = true;
-        }
-    }
+    noFilter = !(redChecked || greenChecked || blueChecked);
 }
 
-function showColors(color){
+function updateColors() {
+    noFilterCheck();
+
     for (let i = 0; i < allColors.length; i++) {
+        let color = allColors[i].dataset.category;
         allColors[i].style.display = "none";
-        if (redChecked) {
-            if (allColors[i].dataset.category === "red") {
-                allColors[i].style.display = "block";                    
-            }
-        }
-        if (greenChecked) {
-            if (allColors[i].dataset.category === "green") {
-                allColors[i].style.display = "block";                    
-            }
-        }
-        if (blueChecked) {
-            if (allColors[i].dataset.category === "blue") {
-                allColors[i].style.display = "block";                    
-            }
-        }
-        if (allColors[i].dataset.category === color) {
+
+        if (noFilter) {
             allColors[i].style.display = "block";
+        } else {
+            if (redChecked && color === "red") {
+                allColors[i].style.display = "block";
+            }
+            if (greenChecked && color === "green") {
+                allColors[i].style.display = "block";
+            }
+            if (blueChecked && color === "blue") {
+                allColors[i].style.display = "block";
+            }
         }
     }
 }
